@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحالفات - IMPALA International</title>
+    
+    <link rel="preconnect" href="https.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+        CSS STYLES - تصميم مستوحى من بروفايل IMPALA
+        ========================================
+        */
+
+        :root {
+            /* الألوان الأساسية المستوحاة من البروفايل */
+            --primary-orange: #f37021; /* اللون البرتقالي الساطع من البروفايل */
+            --dark-bg: #1a1a1a;       /* خلفية داكنة (بديل للأسود) */
+            --card-bg: #2b2b2b;       /* لون خلفية البطاقات */
+            --text-light: #f5f5f5;    /* لون النص الفاتح */
+            --text-dark: #333;        /* لون النص الداكن (داخل البطاقات الفاتحة لو استخدمت) */
+            --border-color: var(--primary-orange);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif; /* استخدام خط عربي عصري */
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* حاوية لتوسيط المحتوى */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* -------------------------
+        تصميم قسم التحالفات
+        -------------------------
+        */
+
+        #alliance-section {
+            text-align: center;
+        }
+
+        /* عنوان القسم */
+        .section-title {
+            font-size: 2.8rem; /* حجم خط كبير "جبار" */
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* خط أسفل العنوان */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--primary-orange);
+            margin: 10px auto 0;
+            opacity: 0.7;
+        }
+
+        /* مقدمة القسم */
+        .section-intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            color: #ccc; /* لون أفتح قليلاً من الأبيض النقي */
+        }
+
+        /* حاوية البطاقات (ستستخدم Grid) */
+        .alliance-cards-wrapper {
+            display: grid;
+            /* تصميم شبكي (Grid) مرن:
+             - على الشاشات الكبيرة: 3 أعمدة
+             - على الشاشات المتوسطة والصغيرة: يتحول تلقائياً إلى عمودين أو عمود واحد
+             - minmax(320px, 1fr): أقل عرض للبطاقة 320 بكسل، وتتمدد لتملأ المساحة
+            */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px; /* مسافة بين البطاقات */
+        }
+
+        /* تصميم البطاقة الفردية (Partner Card) */
+        .partner-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden; /* لإخفاء أي تجاوز من الصورة أو التأثيرات */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-top: 5px solid var(--border-color); /* شريط برتقالي علوي */
+        }
+
+        /* تأثير (Hover) للبطاقة */
+        .partner-card:hover {
+            transform: translateY(-10px); /* رفع البطاقة للأعلى قليلاً */
+            box-shadow: 0 15px 40px rgba(243, 112, 33, 0.3); /* توهج برتقالي */
+        }
+
+        /* حاوية شعار الشريك (المكان المخصص للشعار) */
+        .card-logo-container {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #444; /* لون خلفية مؤقت للشعار */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        /* تخصيص شعارات كل شريك */
+        /* ملاحظة: قم بتغيير 'path/to/logo.png' إلى المسار الفعلي لصور الشعارات */
+        #meidi-logo {
+            /* background-image: url('path/to/meidi-logo.png'); */
+            /* كحل بديل، سنستخدم اسم الشريك كشعار مؤقت */
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            background-color: #333;
+        }
+        
+        #linzi-logo {
+            /* background-image: url('path/to/linzi-logo.png'); */
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            background-color: #333;
+        }
+        
+        #other-logo {
+           /* background-image: url('path/to/other-logo.png'); */
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            background-color: #333;
+        }
+
+
+        /* محتوى البطاقة (النص) */
+        .card-content {
+            padding: 25px;
+            text-align: right; /* لضمان محاذاة النص لليمين */
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+        }
+
+        .card-content .card-description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .card-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            display: inline-block; /* ليأخذ عرض المحتوى فقط */
+        }
+
+        /* قائمة المنتجات */
+        .products-list {
+            list-style: none; /* إزالة النقاط الافتراضية */
+            padding-right: 0; /* إزالة الحشو الافتراضي لليمين */
+        }
+
+        .products-list li {
+            position: relative;
+            padding-right: 35px; /* مساحة للأيقونة المخصصة */
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* أيقونة مخصصة بجوار كل منتج (مستوحاة من التكنولوجيا) */
+        .products-list li::before {
+            content: '⚡'; /* أيقونة "البرق" للطاقة الكهربائية */
+            position: absolute;
+            right: 0;
+            top: 0px;
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+        }
+        
+        /* تخصيص أيقونات لفئات مختلفة */
+        .products-list li.car::before { content: '🚗'; }
+        .products-list li.tricycle::before { content: '🚚'; }
+        .products-list li.motorcycle::before { content: '🏍️'; }
+        .products-list li.scooter::before { content: '🛵'; }
+        .products-list li.parts::before { content: '⚙️'; }
+
+
+    </style>
+</head>
+<body>
+
+    <section id="alliance-section" class="container">
+
+        <h2 class="section-title">التحالفات والتوكيلات</h2>
+        
+        <p class="section-intro">
+            تمتلك IMPALA عقوداً حصرية مع ثلاث مجموعات صينية كبرى[cite: 22]. وبموجب هذه العقود، أصبحت IMPALA الوكيل الحصري في مصر، أفريقيا، أوروبا، ومنطقة الخليج[cite: 23].
+        </p>
+
+        <div class="alliance-cards-wrapper">
+
+            <article class="partner-card">
+                <div class="card-logo-container" id="meidi-logo">
+                    MEIDI GROUP
+                </div>
+                <div class="card-content">
+                    <h3>MEIDI GROUP</h3>
+                    <p class="card-description">
+                        شريكنا الاستراتيجي في صناعة السيارات الكهربائية المصغرة والتريسكلات عالية الأداء المخصصة للشحن.
+                    </p>
+                    <h4>أبرز المنتجات</h4>
+                    <ul class="products-list">
+                        <li class="car">سيارات كهربائية صغيرة (Mini Electric Car) [cite: 54]</li>
+                        <li class="tricycle">تريسكل كهربائي (حمولة 1 طن، مدى 150 كم للشحنة) [cite: 57]</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="partner-card">
+                <div class="card-logo-container" id="linzi-logo">
+                    LINZI GROUP
+                </div>
+                <div class="card-content">
+                    <h3>LINZI GROUP</h3>
+                    <p class="card-description">
+                        الرائدون في الموتوسيكلات الكهربائية الرياضية (Racing) والسكوترات، بخبرة تمتد لـ 37 عاماً[cite: 61].
+                    </p>
+                    <h4>أبرز المنتجات</h4>
+                    <ul class="products-list">
+                        <li class="motorcycle">موتوسيكلات كهربائية رياضية (تصل إلى 8000 واط) [cite: 66, 65]</li>
+                        <li class="scooter">سكوترات كهربائية [cite: 67]</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="partner-card">
+                <div class="card-logo-container" id="other-logo">
+                    Component Mfrs.
+                </div>
+                <div class="card-content">
+                    <h3>مصنعو المكونات</h3>
+                    <p class="card-description">
+                        شريكنا الثالث في تصنيع مكونات السيارات والموتوسيكلات لضمان أعلى جودة في التصنيع المحلي[cite: 22].
+                    </p>
+                    <h4>أبرز المنتجات</h4>
+                    <ul class="products-list">
+                        <li class="parts">مكونات السيارات (Automotive Components)</li>
+                        <li class="parts">مكونات الموتوسيكلات (Motorcycle Components)</li>
+                        <li class="parts">التفاصيل قريباً...</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div> </section>
+    </body>
+</html>
