@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & News - IMPALA INTERNATIONAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="pagePreloader">
+        <div class="logo-animation-container">
+            <img src="images/impala-logo-silver.png" alt="IMPALA Logo">
+            <img src="images/meidi-group-logo.png" alt="MEIDI Group">
+            <img src="images/linzi-group-logo.png" alt="LINZI Group">
+            <img src="images/r2-logo.png" alt="R2 Partner">
+        </div>
+    </div>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/impala-logo-silver.png" alt="IMPALA International Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products Lines</a></li>
+                <li><a href="events.html" class="active">Events & News</a></li> <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+<section class="video-section" style="margin-top: 60px;">
+
+            <h2 class="section-title">Latest Event Highlights</h2>
+            
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/watch?v=ATMUUGY-sO8&t=474s?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID_HERE&controls=0&modestbranding=1" 
+                    title="IMPALA Event Highlight" 
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <section class="action-section">
+            <h2 class="section-title" style="margin-top: 60px;">Get More Information</h2>
+            
+            <div class="action-grid">
+                
+                <div class="action-box animate-slide-up delay-1">
+                    <a href="file:///C:/Users/OT/Desktop/iw%20-%20Copy%20-%20Copy/Company%20pfofile%20Final.pdf" target="_blank">
+                        <span class="icon">📄</span>
+                        Co. Profile 
+
+                    </a>
+                </div>
+                
+                <div class="action-box animate-slide-up delay-2">
+                    <a href="file:///C:/Users/OT/Desktop/iw%20-%20Copy%20-%20Copy/Morocco%20flyers%20(2).pdf" target="_blank">
+                        <span class="icon">📇</span>
+                        Product
+                    </a>
+                </div>
+                
+                <div class="action-box animate-slide-up delay-3">
+                    <a href="file:///C:/Users/OT/Downloads/iw%20-%20Copy%20-%20Copy/images/contact.jpg" target="_blank">
+                        <span class="icon">🌐</span>
+                        Contact 
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IMPALA INTERNATIONAL. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- PRELOADER SCRIPT (لإخفاء شاشة التحميل) ---
+        function initializePagePreloader() {
+            const preloader = document.getElementById('pagePreloader');
+            const animationDuration = 2500; // مدة حركة البريلودر
+            
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    // تم إلغاء دالة المقدمة من هنا
+                }, 1000); // مدة الاختفاء التدريجي
+            }, animationDuration);
+        }
+
+        // يبدأ كل شيء عندما يكون هيكل الصفحة جاهزاً
+        document.addEventListener("DOMContentLoaded", initializePagePreloader);
+    </script>
+</body>
+</html>
